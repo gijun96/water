@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <p>홈페이지 접속 완료!</p>
+    <button onClick="clickBtn()">유저정보 보기</button>
+
+    <script>
+        function clickBtn(){
+        console.log("click Btn !!");
+
+        fetch("/users/selectAll", {
+        method: "GET",
+        mode: "cors", // no-cors, *cors, same-origin
+        credentials : "include",
+       }).then((res) => res.json())
+       .then((data) => console.log(data))
+       .catch((err)=>{
+       console.log(err);
+       });
+
+
+        }
+    </script>
+</body>
+
+</html>
